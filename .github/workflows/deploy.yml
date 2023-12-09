@@ -23,3 +23,18 @@ jobs:
         client-id: ${{ secrets.clientID }}
         tenant-id: ${{ secrets.tenantID }}
         subscription-id: ${{ secrets.subscription }} 
+        
+     - name: Deploy Azure Resource Manager (ARM) Template
+       uses: Azure/arm-deploy@v1.0.9
+       with:
+         scope: 'resourcegroup'
+         subscriptionId: ${{ secrets.subscription }} 
+         resourceGroupName: 'rg-training-deploy'
+         template: 
+         # Incremental (only add resources to resource group) or Complete (remove extra resources from resource group) or Validate (only validates the template).
+         deploymentMode: 'Incremental'
+         deploymentName: 'TrainingDeploy'
+         # Supply deployment parameter values.
+         parameters: environment=dev
+        
+               
