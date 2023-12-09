@@ -33,6 +33,6 @@ jobs:
          template: .\.\InfrastructureAsCode\main.bicep
          deploymentMode: 'Incremental'
          deploymentName: 'TrainingDeploy'
-         parameters: environment=dev
+         parameters: environment=test
         
                
