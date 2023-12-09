@@ -29,7 +29,7 @@ jobs:
        with:
          scope: 'resourcegroup'
          subscriptionId: ${{ secrets.subscription }} 
-         resourceGroupName: 'rg-deployment-target-dev'
+         resourceGroupName: 'rg-deployment-target'
          template: .\.\InfrastructureAsCode\main.bicep
          deploymentMode: 'Incremental'
          deploymentName: 'TrainingDeploy'
