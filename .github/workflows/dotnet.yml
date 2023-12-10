@@ -81,7 +81,7 @@ jobs:
        uses: Azure/webapps-deploy@v3.0.0
        with:
           app-name: ${{ secrets.DEV_WEBAPPNAME }}
-          images: '$registryName/$repositoryName:${{ github.run_number }}'
+          images: $registryName/$repositoryName:${{ github.run_number }}
           resource-group-name: 'rg-deployment-target'
           
  
