@@ -37,4 +37,4 @@ jobs:
       
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: 'Application/src/RazorPagesTestSample.Tests'
+      working-directory: 'Application/tests/RazorPagesTestSample.Tests'
