@@ -13,7 +13,12 @@ on:
     branches: [ "main" ]
     paths: 
      - '/Application/*'
-
+env:
+ registryName: '5ajmq5b2nqsoempnpreg.azurecr.io'
+ repositoryName: 'techboost/dotnetcoreapp'
+ dockerFolderPath: 'Application/src/RazorPagesTestSample'
+ tag: ${{ github.run_number }} 
+ 
 jobs:
   build:
 
@@ -38,3 +43,13 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: 'Application/tests/RazorPagesTestSample.Tests'
+  
+  deploy:
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@v3
+   - name: Docker Login
+     run: docker login ${{ env.registryName }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+   
+ 
+ 
